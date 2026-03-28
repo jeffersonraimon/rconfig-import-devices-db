@@ -1,2 +1,23 @@
-# rconfig-import-devices-db
-RConfig Device Importer direto no Banco de Dados
+# RConfig Device Importer
+
+Este script importa devices de um CSV para o banco de dados do RConfig via Docker.
+
+## Como usar
+
+1. Configure `import_devices.sh` com:
+   - Nome do container MySQL
+   - DB_USER / DB_PASS / DB_NAME
+   - IDs de template, vendor, command group*, categoria e credencial
+   - Usuário e *senha do device
+
+2. Coloque o CSV `XXXX.csv` na mesma pasta.
+
+3. Execute:
+```bash
+chmod +x import_devices.sh
+./import_devices.sh
+````
+
+*Command groups ainda ta com bug para adicionar, o workround é no GUI selecionar em Lote e adicionar
+
+*senha é o cadastro em Device Credentials e não senha direta do equipamento
