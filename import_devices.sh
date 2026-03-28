@@ -76,11 +76,11 @@ EOF
 #ainda bugado
 echo ">> Aplicando command group..."
 docker exec -i $DB_CONTAINER mysql -u$DB_USER -p$DB_PASS $DB_NAME <<EOF
-INSERT INTO commands (device_id, command_group_id)
-SELECT d.id, $COMMAND_GROUP_ID
+INSERT INTO category_device (category_id, device_id)
+SELECT $COMMAND_GROUP_ID, d.id
 FROM devices d
-LEFT JOIN commands cc ON cc.device_id=d.id
-WHERE cc.device_id IS NULL;
+LEFT JOIN category_device cd ON cd.device_id = d.id
+WHERE cd.device_id IS NULL;
 EOF
 
 echo "✅ Importação completa para qualquer CSV com qualquer device!"
