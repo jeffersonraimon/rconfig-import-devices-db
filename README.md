@@ -4,6 +4,22 @@ Este script importa devices de um CSV para o banco de dados do RConfig via Docke
 
 ## Como usar
 
+1. Faça backup antes
+
+docker exec rconfig_db mysqldump -u rconfig -p rconfig8db > backup.sql
+
+1. Valide os IDs para seu cenário:
+   - Crie um device da forma que deseja no GUI
+   - Acesso o DB (docker exec -it rconfig_db mysql -u rconfig -p)
+   - Acesse o o DB do rconfig (USE rconfig8db;)
+   - Veja o device (SELECT * FROM devices LIMIT 5;)
+   - Anotes os IDs de:
+      - device_cred_id
+      - device_category_id
+      - device_template
+      - categories (para o Commands Groups)
+      - device_vendor
+
 1. Configure `import_devices.sh` com:
    - Nome do container MySQL
    - DB_USER / DB_PASS / DB_NAME
