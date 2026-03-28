@@ -23,7 +23,7 @@ docker exec rconfig_db mysqldump -u rconfig -p rconfig8db > backup.sql
 3. Configure `import_devices.sh` com:
    - Nome do container MySQL
    - DB_USER / DB_PASS / DB_NAME
-   - IDs de template, vendor, command group*, categoria e credencial
+   - IDs de template, vendor, command group, categoria e credencial
    - Usuário e *senha do device
 
 4. Coloque o CSV `XXXX.csv` na mesma pasta e adicione seus hosts.
@@ -33,7 +33,5 @@ docker exec rconfig_db mysqldump -u rconfig -p rconfig8db > backup.sql
 chmod +x import_devices.sh
 ./import_devices.sh
 ````
-
-*Command groups ainda ta com bug para adicionar, o workround é no GUI selecionar em Lote e adicionar
 
 *senha é o cadastro em Device Credentials e não senha direta do equipamento
