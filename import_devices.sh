@@ -50,6 +50,7 @@ SELECT d.id, $TEMPLATE_ID
 FROM devices d
 LEFT JOIN device_template dt ON dt.device_id=d.id
 WHERE dt.device_id IS NULL;
+UPDATE devices SET device_template = $TEMPLATE_ID WHERE device_template IS NULL;
 EOF
 
 echo ">> Aplicando tags..."
